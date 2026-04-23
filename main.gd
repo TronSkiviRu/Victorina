@@ -47,7 +47,8 @@ func _on_right_var():
 	start_new_victory()
 
 func _on_wrong_var():
-	pass
+	finish_victorina()
+	pass # сделанно на сервере.
 
 func finish_victorina():
 	comtrol_main.show()
