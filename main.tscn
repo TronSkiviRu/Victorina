@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://de7p53ucih1m5"]
+
+[ext_resource type="Script" uid="uid://bn2vhn0t4vqqh" path="res://main.gd" id="1_ig7tw"]
+
+[sub_resource type="Theme" id="Theme_7dm0k"]
+default_font_size = 80
+
+[sub_resource type="Theme" id="Theme_0xm2m"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_ig7tw"]
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_h2yge"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_lquwl"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_1bvp3"]
+default_font_size = 40
+
+[node name="Main" type="Control" unique_id=1805472612]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=154313468]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4087083, 0.7021384, 1, 1)
+
+[node name="ControlMain" type="Control" parent="." unique_id=1416943667]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTitle" type="Label" parent="ControlMain" unique_id=648251526]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -363.0
+offset_top = 26.0
+offset_right = 363.0
+offset_bottom = 249.0
+grow_horizontal = 2
+theme = SubResource("Theme_7dm0k")
+text = "Викторина
+\"Простоквашино\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelStat" type="Label" parent="ControlMain" unique_id=39418320]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -466.0
+offset_top = -1334.0
+offset_right = -185.0
+offset_bottom = -1163.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_0xm2m")
+text = "Статистика
+Побед: 0
+Поражений: 0"
+
+[node name="Buttons" type="VBoxContainer" parent="ControlMain" unique_id=236963332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_right = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="ControlMain/Buttons" unique_id=315849864]
+layout_mode = 2
+theme = SubResource("Theme_ig7tw")
+text = "Начать Викторину
+"
+
+[node name="Tutorial" type="Button" parent="ControlMain/Buttons" unique_id=469278669]
+layout_mode = 2
+theme = SubResource("Theme_ig7tw")
+text = "Руководство
+"
+
+[node name="LabelTutorial" type="Label" parent="ControlMain" unique_id=1953629659]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -747.0
+offset_right = 312.0
+offset_bottom = -485.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_h2yge")
+text = "Для прохождения викторины отвечайте на вопросы нажимая соответствующие кнопки в интерфейсе. "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelInfo" type="Label" parent="ControlMain" unique_id=1640070084]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 381.0
+offset_right = 150.0
+offset_bottom = 494.0
+grow_horizontal = 2
+theme = SubResource("Theme_lquwl")
+text = "Вы прошли виктарину!
+Вы не прошли викторуину!"
+
+[node name="ControlGame" type="Control" parent="." unique_id=1407633883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelQuestion" type="Label" parent="ControlGame" unique_id=845851515]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -371.0
+offset_top = 253.0
+offset_right = 371.0
+offset_bottom = 731.0
+grow_horizontal = 2
+theme = SubResource("Theme_1bvp3")
+text = "Как вы считаете нормально ли читать по губам когда на них никто не смотрит"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelNumberQuestion" type="Label" parent="ControlGame" unique_id=1107862537]
+layout_mode = 1
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 141.0
+offset_bottom = 89.0
+theme = SubResource("Theme_1bvp3")
+text = "01/10"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlGame" unique_id=224558785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 771.0
+offset_right = -93.0
+offset_bottom = -561.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Button" type="Button" parent="ControlGame/VBoxContainer" unique_id=1270933461]
+layout_mode = 2
+theme = SubResource("Theme_1bvp3")
+text = "Вариант 1"
+
+[node name="Button2" type="Button" parent="ControlGame/VBoxContainer" unique_id=236866469]
+layout_mode = 2
+theme = SubResource("Theme_1bvp3")
+text = "Вариант 2"
+
+[node name="Button3" type="Button" parent="ControlGame/VBoxContainer" unique_id=566791565]
+layout_mode = 2
+theme = SubResource("Theme_1bvp3")
+text = "Вариант 3
+"
+
+[node name="Button4" type="Button" parent="ControlGame/VBoxContainer" unique_id=169315753]
+layout_mode = 2
+theme = SubResource("Theme_1bvp3")
+text = "Вариант 4"
