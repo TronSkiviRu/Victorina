@@ -49,6 +49,10 @@ func _on_right_var():
 
 func _on_wrong_var():
 	finish_victorina()
+<<<<<<< HEAD
+=======
+	pass # сделанно на сервере
+>>>>>>> 71ec29ae862a8a8fc5f2378a84b8445223639dc2
 
 func finish_victorina():
 	comtrol_main.show()
