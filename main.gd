@@ -2,6 +2,7 @@ extends Control
 
 @onready var comtrol_main = $ControlMain
 @onready var label_tutorial = $ControlMain/LabelTutorial
+@onready var label_Info = $ControlMain/LabelInfo
 
 @onready var control_game = $ControlGame
 @onready var label_question = $ControlGame/LabelQuestion
@@ -24,7 +25,7 @@ func _on_tutorial_pressed() -> void:
 	label_tutorial.visible = !label_tutorial.visible
 	
 func start_new_victory():
-	if number_question == 10:
+	if number_question == 11:
 		finish_victorina()
 	
 	label_question.text = "Hfljk"
@@ -47,9 +48,18 @@ func _on_right_var():
 	start_new_victory()
 
 func _on_wrong_var():
-	pass
+	finish_victorina()
+<<<<<<< HEAD
+=======
+	pass # сделанно на сервере
+>>>>>>> 71ec29ae862a8a8fc5f2378a84b8445223639dc2
 
 func finish_victorina():
 	comtrol_main.show()
 	control_game.hide()
+	label_Info.show()
+	if number_question == 11:
+		label_Info.text = "Вы прошли виктарину!"
+	else:
+		label_Info.text = "Вы не прошли виктарину!"
 	number_question = 0
