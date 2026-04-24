@@ -4,6 +4,7 @@ extends Control
 @onready var comtrol_main = $ControlMain
 @onready var label_tutorial = $ControlMain/LabelTutorial
 @onready var label_Info = $ControlMain/LabelInfo
+@onready var label_stats = $ControlMain/LabelStat
 
 @onready var control_game = $ControlGame
 @onready var label_question = $ControlGame/LabelQuestion
@@ -13,7 +14,17 @@ var number_question = 1
 
 var question_bank: QuestionBank
 
+var save_manager
+var total_wins = 0
+var total_losses = 0
+
 func _ready() -> void:
+	save_manager = load("res://save_manager.gd").new()
+	var stats = save_manager.load_stats()
+	total_wins = stats.wins
+	total_losses = stats.losses
+	update_stats(total_wins, total_losses)
+	
 	question_bank = QuestionBank.new()
 	comtrol_main.show()
 	control_game.hide()
@@ -60,11 +71,24 @@ func _on_wrong_var():
 	finish_victorina()
 
 func finish_victorina():
+	
 	comtrol_main.show()
 	control_game.hide()
 	label_Info.show()
 	if number_question == 11:
 		label_Info.text = "Вы прошли виктарину!"
+		total_wins += 1
+		update_stats(total_wins, total_losses)
+		save_manager.save_stats(total_wins, total_losses)
 	else:
 		label_Info.text = "Вы не прошли виктарину!"
+		total_losses += 1
+		update_stats(total_wins, total_losses)
+		save_manager.save_stats(total_wins, total_losses)
 	number_question = 1
+
+func update_stats(win:int, lose:int):
+	label_stats.text = \
+"Статистика
+Побед: %d
+Поражений: %d" % [win, lose]
