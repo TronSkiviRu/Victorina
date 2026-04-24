@@ -11,9 +11,10 @@ extends Control
 @onready var buttons = $ControlGame/Buttons
 var number_question = 1
 
-
+var question_bank: QuestionBank
 
 func _ready() -> void:
+	question_bank = QuestionBank.new()
 	comtrol_main.show()
 	control_game.hide()
 
@@ -31,20 +32,25 @@ func start_new_victory():
 	if number_question == 11:
 		finish_victorina()
 	
-	label_question.text = "Hfljk"
+	var info_level = question_bank.get_question(number_question-1)
+	var wrong_answer = info_level[2]
+	wrong_answer.shuffle()
+	label_question.text = info_level[0]
 	label_number_question.text = "%02d/10" % number_question
-	var n = randi() % buttons.get_child_count()
-	
+	var random_indx = randi() % buttons.get_child_count()
+	var inx_wrong = 0
 	for i in buttons.get_child_count():
 		var button = buttons.get_child(i)
 		for connection in button.pressed.get_connections():
 			button.pressed.disconnect(connection.callable)
-		if i == n:
+		if i == random_indx:
 			button.pressed.connect(_on_right_var)
+			button.text = info_level[1]
 		else:
 			button.pressed.connect(_on_wrong_var)
+			button.text = wrong_answer[inx_wrong]
+			inx_wrong += 1
 	number_question += 1
-	print(number_question)
 
 
 func _on_right_var():
