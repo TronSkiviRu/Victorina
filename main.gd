@@ -1,5 +1,6 @@
 extends Control
 
+
 @onready var comtrol_main = $ControlMain
 @onready var label_tutorial = $ControlMain/LabelTutorial
 @onready var label_Info = $ControlMain/LabelInfo
@@ -9,6 +10,8 @@ extends Control
 @onready var label_number_question = $ControlGame/LabelNumberQuestion
 @onready var buttons = $ControlGame/Buttons
 var number_question = 1
+
+
 
 func _ready() -> void:
 	comtrol_main.show()
@@ -49,10 +52,6 @@ func _on_right_var():
 
 func _on_wrong_var():
 	finish_victorina()
-<<<<<<< HEAD
-=======
-	pass # сделанно на сервере
->>>>>>> 71ec29ae862a8a8fc5f2378a84b8445223639dc2
 
 func finish_victorina():
 	comtrol_main.show()
@@ -62,4 +61,4 @@ func finish_victorina():
 		label_Info.text = "Вы прошли виктарину!"
 	else:
 		label_Info.text = "Вы не прошли виктарину!"
-	number_question = 0
+	number_question = 1
